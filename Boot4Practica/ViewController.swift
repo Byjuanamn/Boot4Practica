@@ -33,6 +33,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func addNewConatiner(_ sender: Any) {
+        let containerRef =  blobClient.containerReference(fromName: "ejemplo1")
+        
+        containerRef.createContainerIfNotExists(with: .container, requestOptions: nil, operationContext: nil) { (error, noExits) in
+            if let _ = error {
+                print("\(error?.localizedDescription)")
+                return
+            }
+            
+            if noExits {
+                self.readAllContainers()
+            }
+        
+        }
+        
+    }
+    
     func setupAzureStorageConnect() {
         let credetials = AZSStorageCredentials(accountName: "juanboot4", accountKey: "4GrSb/HgrXwXBxWhpe8SzZkqdyDpUERY4kzZfE93Ud1Kea168R6GVyOOK0tIH9CvjnSkcgJp4wRkMRUpjBhilQ==")
         do {
@@ -57,10 +74,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                                 return
                                             }
                                             
-                                            for item in (containersResults?.results)! {
-                                                print(item)
-                                                self.model.append(item)
-                                            }
+                                            
+                                            self.model = (containersResults?.results)!
+                                            
                                             DispatchQueue.main.async {
                                                 self.tableView.reloadData()
                                             }
