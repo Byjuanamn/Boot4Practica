@@ -8,15 +8,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     var acount: AZSCloudStorageAccount!
     var blobClient: AZSCloudBlobClient!
+    var model: [Any] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    
         setupAzureStorageConnect()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +59,10 @@ class ViewController: UIViewController {
                                             
                                             for item in (containersResults?.results)! {
                                                 print(item)
+                                                self.model.append(item)
+                                            }
+                                            DispatchQueue.main.async {
+                                                self.tableView.reloadData()
                                             }
         
         
@@ -61,6 +74,31 @@ class ViewController: UIViewController {
 }
 
 
+extension ViewController {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if model.isEmpty {
+          return 0
+        }
+        
+        return model.count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CELDA", for: indexPath)
+        
+        let item = model[indexPath.row] as! AZSCloudBlobContainer
+        
+        cell.textLabel?.text = item.name
+        
+        return cell
+    }
+}
 
 
 
