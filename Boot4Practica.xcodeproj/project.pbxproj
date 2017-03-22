@@ -15,6 +15,10 @@
 		5D0188C81E81D06800274874 /* AZSClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0188C71E81D06800274874 /* AZSClient.framework */; };
 		5D0188CB1E81D0C900274874 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0188CA1E81D0C900274874 /* libxml2.2.tbd */; };
 		5D4385A91E830E4D00C5C667 /* ContainerBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4385A81E830E4D00C5C667 /* ContainerBrowser.swift */; };
+		5D4385AB1E83353B00C5C667 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4385AA1E83353B00C5C667 /* MicrosoftAzureMobile.framework */; };
+		5D4385AD1E83360900C5C667 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4385AC1E83360900C5C667 /* WebKit.framework */; };
+		5D4385AF1E83369D00C5C667 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4385AE1E83369D00C5C667 /* Security.framework */; };
+		5D4385B11E8336A500C5C667 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4385B01E8336A500C5C667 /* SafariServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,10 @@
 		5D0188CA1E81D0C900274874 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		5D0188CC1E81D1CC00274874 /* Boot4Practica-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Boot4Practica-Bridging-Header.h"; sourceTree = "<group>"; };
 		5D4385A81E830E4D00C5C667 /* ContainerBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerBrowser.swift; sourceTree = "<group>"; };
+		5D4385AA1E83353B00C5C667 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
+		5D4385AC1E83360900C5C667 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		5D4385AE1E83369D00C5C667 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5D4385B01E8336A500C5C667 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +44,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D4385B11E8336A500C5C667 /* SafariServices.framework in Frameworks */,
+				5D4385AF1E83369D00C5C667 /* Security.framework in Frameworks */,
+				5D4385AD1E83360900C5C667 /* WebKit.framework in Frameworks */,
 				5D0188CB1E81D0C900274874 /* libxml2.2.tbd in Frameworks */,
+				5D4385AB1E83353B00C5C667 /* MicrosoftAzureMobile.framework in Frameworks */,
 				5D0188C81E81D06800274874 /* AZSClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +91,7 @@
 		5D0188C61E81D04500274874 /* Frameworks 3party */ = {
 			isa = PBXGroup;
 			children = (
+				5D4385AA1E83353B00C5C667 /* MicrosoftAzureMobile.framework */,
 				5D0188C71E81D06800274874 /* AZSClient.framework */,
 			);
 			name = "Frameworks 3party";
@@ -87,6 +100,9 @@
 		5D0188C91E81D0C900274874 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D4385B01E8336A500C5C667 /* SafariServices.framework */,
+				5D4385AE1E83369D00C5C667 /* Security.framework */,
+				5D4385AC1E83360900C5C667 /* WebKit.framework */,
 				5D0188CA1E81D0C900274874 /* libxml2.2.tbd */,
 			);
 			name = Frameworks;

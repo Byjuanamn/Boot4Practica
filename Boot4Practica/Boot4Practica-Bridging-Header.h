@@ -3,4 +3,6 @@
 //
 
 #import <AZSClient/AZSCLient.h>
+#import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
+
 
