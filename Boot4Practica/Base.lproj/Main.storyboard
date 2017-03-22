@@ -27,7 +27,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELDA" id="k2n-uT-PYE">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k2n-uT-PYE" id="Dfs-3h-b2b">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
@@ -84,7 +84,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CELDACONTAINER" id="gn7-kI-zvP">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="560" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gn7-kI-zvP" id="tIH-Xs-5NX">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
@@ -102,6 +102,13 @@
                             <constraint firstItem="6ud-Qz-yTY" firstAttribute="leading" secondItem="Z0a-a8-teP" secondAttribute="leadingMargin" id="xzz-Sd-Hdc"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="done" systemItem="camera" id="3rD-x0-55Z">
+                            <connections>
+                                <action selector="uploadAction:" destination="t4z-rE-L95" id="SoD-7n-iIs"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <connections>
                         <outlet property="tableView" destination="6ud-Qz-yTY" id="kMr-5Y-ZVc"/>
                     </connections>

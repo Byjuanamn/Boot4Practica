@@ -30,6 +30,29 @@ class ContainerBrowser: UIViewController, UITableViewDelegate, UITableViewDataSo
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func uploadAction(_ sender: Any) {
+        uploadLocalBlob()
+    }
+    
+    func uploadLocalBlob() {
+        let container = blobClient.containerReference(fromName: nameCurrentContainer)
+        let blobLocal = container.blockBlobReference(fromName: UUID().uuidString)
+
+        let img = UIImageJPEGRepresentation(#imageLiteral(resourceName: "imgBlob"), 0.5)!
+        
+        blobLocal.upload(from: img) { (error) in
+            if error != nil {
+                print("\(error.localizedDescription)")
+                return
+            }
+            self.readAllBlobs(inContainer: self.nameCurrentContainer)
+        }
+
+    }
+    
+    
+    
+    
     
     func readAllBlobs(inContainer current: String){
         let container = blobClient.containerReference(fromName: current)
