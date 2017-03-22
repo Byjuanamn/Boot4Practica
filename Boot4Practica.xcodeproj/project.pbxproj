@@ -14,6 +14,7 @@
 		5D0188BF1E81D03A00274874 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D0188BD1E81D03A00274874 /* LaunchScreen.storyboard */; };
 		5D0188C81E81D06800274874 /* AZSClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0188C71E81D06800274874 /* AZSClient.framework */; };
 		5D0188CB1E81D0C900274874 /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D0188CA1E81D0C900274874 /* libxml2.2.tbd */; };
+		5D4385A91E830E4D00C5C667 /* ContainerBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4385A81E830E4D00C5C667 /* ContainerBrowser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		5D0188C71E81D06800274874 /* AZSClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AZSClient.framework; sourceTree = "<group>"; };
 		5D0188CA1E81D0C900274874 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		5D0188CC1E81D1CC00274874 /* Boot4Practica-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Boot4Practica-Bridging-Header.h"; sourceTree = "<group>"; };
+		5D4385A81E830E4D00C5C667 /* ContainerBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerBrowser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				5D0188B41E81D03A00274874 /* AppDelegate.swift */,
-				5D0188B61E81D03A00274874 /* ViewController.swift */,
+				5D4385A71E830E1200C5C667 /* ViewControllers */,
 				5D0188B81E81D03A00274874 /* Main.storyboard */,
 				5D0188BB1E81D03A00274874 /* Assets.xcassets */,
 				5D0188BD1E81D03A00274874 /* LaunchScreen.storyboard */,
@@ -88,6 +90,15 @@
 				5D0188CA1E81D0C900274874 /* libxml2.2.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D4385A71E830E1200C5C667 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5D0188B61E81D03A00274874 /* ViewController.swift */,
+				5D4385A81E830E4D00C5C667 /* ContainerBrowser.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +177,7 @@
 			files = (
 				5D0188B71E81D03A00274874 /* ViewController.swift in Sources */,
 				5D0188B51E81D03A00274874 /* AppDelegate.swift in Sources */,
+				5D4385A91E830E4D00C5C667 /* ContainerBrowser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +354,7 @@
 				5D0188C51E81D03A00274874 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

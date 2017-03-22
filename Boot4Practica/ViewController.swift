@@ -33,6 +33,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "VerContainer" {
+            let vc = segue.destination as! ContainerBrowser
+            vc.blobClient = blobClient
+            vc.nameCurrentContainer = (sender as! AZSCloudBlobContainer).name
+        }
+    }
+    
     @IBAction func addNewConatiner(_ sender: Any) {
         let containerRef =  blobClient.containerReference(fromName: "ejemplo1")
         
@@ -51,6 +60,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func setupAzureStorageConnect() {
+
         let credetials = AZSStorageCredentials(accountName: "juanboot4", accountKey: "4GrSb/HgrXwXBxWhpe8SzZkqdyDpUERY4kzZfE93Ud1Kea168R6GVyOOK0tIH9CvjnSkcgJp4wRkMRUpjBhilQ==")
         do {
             acount = try AZSCloudStorageAccount(credentials: credetials, useHttps: true)
@@ -91,6 +101,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
 extension ViewController {
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Obtener la referencia al Container a consultar
+        
+        let item = model[indexPath.row] as! AZSCloudBlobContainer
+        performSegue(withIdentifier: "VerContainer", sender: item)
+        
+    }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
