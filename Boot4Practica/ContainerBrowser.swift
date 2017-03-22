@@ -50,6 +50,16 @@ class ContainerBrowser: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     }
     
+    func deleteBlob(blobLocal: AZSCloudBlockBlob) {
+    
+        blobLocal.delete { (error) in
+            if let _ = error {
+                print("\(error?.localizedDescription)")
+                return
+            }
+        }
+    
+    }
     
     
     
@@ -129,6 +139,19 @@ extension ContainerBrowser {
         }
         
         return model.count
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            let item = model[indexPath.row] as AZSCloudBlockBlob
+            model.remove(at: indexPath.row)
+            deleteBlob(blobLocal: item)
+            tableView.endUpdates()
+        }
     }
 }
 

@@ -10,28 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Boot4Practica/ContainerBrowser.swift"
-            timestampString = "511907979.800516"
+            timestampString = "511910706.03923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "downloadBlob(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Boot4Practica/ContainerBrowser.swift"
-            timestampString = "511907985.004502"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "downloadBlob(_:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "deleteBlob(blobLocal:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
