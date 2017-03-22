@@ -2,15 +2,19 @@
 
 import UIKit
 
-class ContainerBrowser: UIViewController {
+class ContainerBrowser: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var blobClient: AZSCloudBlobClient!
     var nameCurrentContainer: String!
+    var model: [AZSCloudBlockBlob]! = []
     
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = nameCurrentContainer
+        tableView.dataSource = self
+        tableView.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -41,27 +45,68 @@ class ContainerBrowser: UIViewController {
                                             return
                                         }
                                         
-                                        for item in (results?.blobs)! {
-                                            print("\(item)")
-                                        }
+                                        self.model = results?.blobs as! [AZSCloudBlockBlob]
                                         
                                         DispatchQueue.main.async {
                                             /// aqui sincronizar
+                                            self.tableView.reloadData()
                                         }
         }
         
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    fileprivate func downloadBlob(_ blob: AZSCloudBlockBlob) {
+        let container = blobClient.containerReference(fromName: nameCurrentContainer)
+        let blobLocal = container.blockBlobReference(fromName: blob.blobName)
+        
+        blobLocal.downloadToData { (error, data) in
+            if let _ = error {
+                print("\(error?.localizedDescription)")
+                return
+            }
+            if let _ = data {
+                var image = UIImage(data: data!)
+                
+                DispatchQueue.main.async {
+                    /// pasar la imagen al main thread 
+                    print("\(image.debugDescription)")
+                }
+            }
+        }
     }
-    */
 
+}
+
+extension ContainerBrowser {
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = model[indexPath.row] as AZSCloudBlockBlob
+        downloadBlob(item)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CELDACONTAINER", for: indexPath)
+        
+        let item = model[indexPath.row] as AZSCloudBlockBlob
+        
+        cell.textLabel?.text = item.blobName
+        
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if model.isEmpty {
+            return 0
+        }
+        
+        return model.count
+    }
 }
 
 
