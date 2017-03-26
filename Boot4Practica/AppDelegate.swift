@@ -17,35 +17,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let client = MSClient(
-            applicationURLString:"https://boot4camplab.azurewebsites.net"
-        )
         
-        let tableAutores = client.table(withName: "Autores")
+//        let client = MSClient(
+//            applicationURLString:"https://boot4camplab.azurewebsites.net"
+//        )
+//        let posts = client.table(withName: "Posts")
+//        
+//        let postObject = ["name" : "Juan", "secondName" : "Martin", "age" : "43", "autor" : "Juan"]
+//        
+//        posts.insert(postObject) { (result, error) in
+//            if let _ = error {
+//                print("\(error?.localizedDescription)")
+//            } else {
+//                print("\(result)")
+//            }
+//        }
+//
+//        
+//        let tableAutores = client.table(withName: "Autores")
+//        
+//        let autor = ["name" : "Juan", "secondName" : "Martin", "age" : "43"]
+//        
+//        tableAutores.insert(autor) { (result, error) in
+//            if let _ = error {
+//                print("\(error?.localizedDescription)")
+//            } else {
+//                print("\(result)")
+//            }
+//        }
+//        
+//        let predicate = NSPredicate(format: "name == 'Juan'")
+//        tableAutores.read(with: predicate) { (result, error) in
+//            if let _ = error {
+//                print("\(error?.localizedDescription)")
+//            } else {
+//                print("\(result)")
+//                
+//            }
+//        }
         
-        let autor = ["name" : "Juan", "secondName" : "Martin", "age" : "43"]
-        
-        tableAutores.insert(autor) { (result, error) in
-            if let _ = error {
-                print("\(error?.localizedDescription)")
-            } else {
-                print("\(result)")
-            }
-        }
-        
-        let predicate = NSPredicate(format: "name == 'Juan'")
-        tableAutores.read(with: predicate) { (result, error) in
-            if let _ = error {
-                print("\(error?.localizedDescription)")
-            } else {
-                print("\(result)")
-                
-            }
-        }
-        
-     
-        
-        
+             
         return true
     }
 

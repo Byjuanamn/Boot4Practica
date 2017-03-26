@@ -45,7 +45,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func addNewConatiner(_ sender: Any) {
         let containerRef =  blobClient.containerReference(fromName: "ejemplo1")
         
-        containerRef.createContainerIfNotExists(with: .container, requestOptions: nil, operationContext: nil) { (error, noExits) in
+        containerRef.createContainerIfNotExists(with: .container,
+                                                requestOptions: nil,
+                                                operationContext: nil) { (error, noExits) in
             if let _ = error {
                 print("\(error?.localizedDescription)")
                 return
@@ -61,6 +63,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func setupAzureStorageConnect() {
 
+//        let sasCredentials = AZSStorageCredentials(sasToken: "ss=b&spr=https&sp=rwdlac&sv=2015-07-08&sig=LY3tbAHKutkIkXf9aDKqrL0mEvGBZ4MWA82/6R88img%3D&srt=co&se=2017-03-25", accountName: "juanboot4")
         let credetials = AZSStorageCredentials(accountName: "juanboot4", accountKey: "4GrSb/HgrXwXBxWhpe8SzZkqdyDpUERY4kzZfE93Ud1Kea168R6GVyOOK0tIH9CvjnSkcgJp4wRkMRUpjBhilQ==")
         do {
             acount = try AZSCloudStorageAccount(credentials: credetials, useHttps: true)

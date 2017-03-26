@@ -50,9 +50,9 @@ class ContainerBrowser: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     }
     
-    func deleteBlob(blobLocal: AZSCloudBlockBlob) {
+    func deleteBlob(_ blobToDelete: AZSCloudBlockBlob) {
     
-        blobLocal.delete { (error) in
+        blobToDelete.delete { (error) in
             if let _ = error {
                 print("\(error?.localizedDescription)")
                 return
@@ -98,7 +98,7 @@ class ContainerBrowser: UIViewController, UITableViewDelegate, UITableViewDataSo
                 return
             }
             if let _ = data {
-                var image = UIImage(data: data!)
+                let image = UIImage(data: data!)
                 
                 DispatchQueue.main.async {
                     /// pasar la imagen al main thread 
@@ -149,7 +149,7 @@ extension ContainerBrowser {
             
             let item = model[indexPath.row] as AZSCloudBlockBlob
             model.remove(at: indexPath.row)
-            deleteBlob(blobLocal: item)
+            deleteBlob(item)
             tableView.endUpdates()
         }
     }
